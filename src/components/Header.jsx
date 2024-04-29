@@ -1,6 +1,16 @@
+import AuthContext from "@/context/AuthContext";
+import LanguageContext from "@/context/LanguageContext";
+import ThemeContext from "@/context/ThemeContext";
+import { useContext } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 
-export default function Header({theme, handleTheme, handleLanguage, texts, auth, handleAuth}) {
+export default function Header() {
+    
+    const {theme, handleTheme} = useContext(ThemeContext);
+    const {handleLanguage, texts} = useContext(LanguageContext);
+    const {auth, handleAuth} = useContext(AuthContext);
+
+
     return (    
         <header className={theme}>
             <h2>{texts.headerTitle}</h2>
